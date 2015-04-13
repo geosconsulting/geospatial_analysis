@@ -24,3 +24,5 @@ county$area = gArea(county, byid = TRUE) / 1000^2
 library(plyr)
 county@data = join(county@data,dat[,colnames(dat) %in% c("FIPS","census2010pop")],by="FIPS")
 county$density=county$census2010pop/county$area
+
+

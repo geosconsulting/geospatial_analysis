@@ -3,8 +3,8 @@ haifa = geocode("Haifa")
 
 library(raster)
 library(rgdal)
-dem1 = getData("SRTM",lon=33,lat=33)
-dem2 = getData("SRTM",lon=38,lat=33)
+#dem1 = getData("SRTM",lon=33,lat=33)
+#dem2 = getData("SRTM",lon=38,lat=33)
 
 dem1 = raster("srtm_43_06.tif")
 dem2 = raster("srtm_44_06.tif")

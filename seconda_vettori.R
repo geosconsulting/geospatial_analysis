@@ -2,6 +2,7 @@ library(sp)
 library(rgdal)
 library(raster)
 
+
 county = readOGR("../Data files", "USA_2_GADM_fips", 
                  stringsAsFactors = FALSE)
 county = county[county$NAME_1 != "Hawaii" & county$NAME_1 != "Alaska" ,]

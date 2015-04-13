@@ -3,6 +3,7 @@ library(RColorBrewer)
 library(lattice)
 library(rasterVis)
 
+
 r = brick("../Data files/modis.tif")
 
 valori_3bande_5celle = r[[1:3]][1:5]
