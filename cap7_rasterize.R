@@ -52,3 +52,10 @@ plot(slope,ext = dem_ext)
 plot(haifa_buildings, add = TRUE)
 plot(haifa_natural, col = "lightgreen", add = TRUE)
 
+dev.off()
+
+natural_mask = mask(slope, haifa_natural)
+natural_mask = crop(natural_mask, haifa_ext)
+buildings_mask = mask(slope, haifa_buildings)
+buildings_mask = crop(buildings_mask, haifa_ext)
+
