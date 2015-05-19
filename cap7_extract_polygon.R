@@ -20,8 +20,6 @@ towns = geocode(towns_names)
 coordinates(towns) = ~ lon + lat
 proj4string(towns) = CRS("+proj=longlat +datum=WGS84")
 towns = spTransform(towns, CRS(proj4string(l_00)))
-dist_towns = gDistance(towns,pol,byid = TRUE)
-dist_order = order(dist_towns[,1])
 
 l_rec = ndvi_00
 l_rec[l_rec <= 0.2] = 0
@@ -33,6 +31,10 @@ l_rec_focal_clump = clump(l_rec_focal, gaps = FALSE)
 pol = rasterToPolygons(l_rec_focal_clump,dissolve = TRUE)
 pol$area = gArea(pol,byid = TRUE)/1000^2
 pol = pol[pol$area>1,]
+
+dist_towns = gDistance(towns,pol,byid = TRUE)
+dist_order = order(dist_towns[,1])
+
 forests = pol[dist_order[1:2], ]
 forests$name = c("Lahav", "Kramim")
 

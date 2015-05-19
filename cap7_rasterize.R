@@ -23,7 +23,7 @@ library(rgdal)
 # plot(towns, add = TRUE)
 # text(coordinates(towns), towns_names, pos = 3)
 
-dem = raster("dem.tif")
+dem = raster("dem_crop.tif")
 haifa_buildings = readOGR("Data files", "haifa_buildings")
 haifa_natural = readOGR("Data files", "haifa_natural")
 
@@ -52,7 +52,6 @@ plot(slope,ext = dem_ext)
 plot(haifa_buildings, add = TRUE)
 plot(haifa_natural, col = "lightgreen", add = TRUE)
 
-dev.off()
 
 natural_mask = mask(slope, haifa_natural)
 natural_mask = crop(natural_mask, haifa_ext)
